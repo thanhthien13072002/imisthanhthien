@@ -1,0 +1,79 @@
+﻿.khungimg {
+    width: 500px;
+    height: 300px;
+    text-align: center;
+    position: relative;
+    top: 180px;
+    left: 120px;
+}
+
+    .khungimg .logodn {
+        width: 100%;
+        height: auto;
+       
+    }
+
+body:hover .logodn {
+  
+    width: 100%;
+    height: auto;
+    transition: 0.2s ease-in-out;
+    animation: logo 2s;
+    /*   animation-direction: alternate;*/
+    animation-fill-mode: forwards;
+}
+    @keyframes logo
+    {
+        0% {
+            transform: scale(1.0);
+            transition: 0.2s ease-in-out;
+        }
+
+        100% {
+            transform: scale(1.4);
+            transition: 0.2s ease-in-out;
+        }
+    }
+.khungimg p
+{
+    text-align:center;
+    font-size:35px;
+    font-family:'Adobe Caslon Pro';
+    font-weight:800;
+    display: none;
+}
+body:hover .khungimg p {
+    padding: 30px;
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Adobe Caslon Pro';
+    font-weight: 800;
+    display: block;
+    animation: textlogo 2s;
+    animation-fill-mode: forwards;
+    color: aqua;
+   
+}
+@keyframes textlogo{
+    0% {
+        transform: scale(1.0);
+        transition: 0.2s ease-in-out;
+    }
+
+    100% {
+        transform: scale(1.4);
+        transition: 0.2s ease-in-out;
+        text-shadow: 0 2px 1px #000000, 0 -2px 1.5px #f436d8;
+    }
+}
+.taoktk p{
+    position: absolute;
+    right:10px;
+    bottom:-15px;
+    color: white;
+    font-weight:600;
+}
+.taoktk a
+{
+ 
+}

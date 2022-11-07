@@ -1,0 +1,145 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutPageThu1.cshtml";
+}
+
+<style>
+    .edit-p {
+        margin-left: 20%;
+        margin-right: 20%;
+        font-size: 24px;
+    }
+
+        .edit-p p {
+            padding-bottom: 12px;
+            color: #ff6a00;
+        }
+
+        .edit-p b {
+            color: #140c64;
+        }
+
+    .container h1 {
+        color: aqua;
+        text-shadow: 2px 2px 2px #000000;
+        font-size: 50px;
+        font-weight: 900;
+    }
+
+    .container .row {
+        padding-bottom: 18px;
+    }
+
+    .container label {
+        font-size: 23px;
+    }
+</style>
+<div class="container">
+    <h1 class="text-center">TẠO MỚI SẢN PHẨM</h1>
+    <form action="/TrangChu/Create" method="post">
+        <div class="row">
+            <div class="col-md-6">
+                <label for="Name" class="form-label">Tên sản phẩm</label>
+                <input type="text"
+                       class="form-control"
+                       id="Name"
+                       name="Name"
+                       placeholder="Name" />
+            </div>
+            <div class="col-md-6">
+                <label for="Gia" class="form-label">Giá</label>
+                <input type="number"
+                       class="form-control"
+                       id="Gia"
+                       name="Gia"
+                       placeholder="Nhập giá sản phẩm" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="Giakhuyenmai" class="form-label">Giá khuyến mãi</label>
+                <input type="text"
+                       class="form-control"
+                       id="Giakhuyenmai"
+                       name="Giakhuyenmai"
+                       placeholder="Giá bán KM" />
+
+                <div class="col-md-6">
+                    <label for="Motasanpham" class="form-label">Mô tả SP</label>
+                    <input type="text"
+                           class="form-control"
+                           id="Motasanpham"
+                           name="Motasanpham"
+                           placeholder="Mô tả" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="Tinhtrang" class="form-label">Tinhtrang</label>
+               
+                <select id="Tinhtrang" name="Tinhtrang" class="form-select">
+                        <option value="">Chọn tình trạng</option>
+                        <option value="Còn hàng">Còn hàng</option>
+                        <option value="Hết hàng">Hết hàng</option>
+                        <option value="Sắp mở bán">Sắp mở bán</option>
+                        <option value="Chưa cập nhập">Chưa cập nhập</option>
+                    </select>
+
+                <div class="col-md-6">
+                    <label for="Chitiet" class="form-label">Chitiet</label>    
+                    <select id="Chitiet" name="Chitiet" class="form-select">
+                            <option value="">Chọn event</option>
+                            <option value="Hot">Hot</option>
+                            <option value="New">New</option>
+                            <option value="Giới hạn">Giới hạn</option>
+                        </select>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-4">
+                <label for="Khuyenmai" class="form-label">Khuyến mãi</label>
+                <input type="text"
+                       class="form-control"
+                       id="Khuyenmai"
+                       name="Khuyenmai"
+                       placeholder="Nhập khuyến mãi" />
+            </div>
+
+            <div class="col-md-4">
+
+                <label for="ThuongHieuID" class="form-label">ThuongHieu</label>
+               
+                <select id="ThuongHieuID" name="ThuongHieuID" class="form-select">
+                    <option class="">Chọn thương hiệu</option>
+
+                    @foreach (var thuonghieu in ViewBag.Thuonghieu)
+                    {
+                        <option value="@thuonghieu.MaTH">@thuonghieu.TenTH</option>
+                    }
+                </select>
+            </div>
+
+            <div class="col-md-4">
+
+                <label for="Url_anh" class="form-label">Url_anh</label>
+                <input type="file"
+                       class="form-control"
+                       id="Url_anh"
+                       name="Url_anh"
+                       placeholder="Url_anh" />
+            </div>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary">Thêm</button>
+        <a class="btn btn-danger" href="/TrangChu/Home">Thoát</a>
+
+    </form>
+</div>

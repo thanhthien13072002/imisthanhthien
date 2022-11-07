@@ -1,0 +1,161 @@
+﻿@model ThietKeWebsiteBan_DienThoai_NguyenThanhThien_2001206972.Models.Sanpham
+
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutPageThu1.cshtml";
+}
+
+<style>
+    .edit-p {
+        margin-left: 20%;
+        margin-right: 20%;
+        font-size: 24px;
+    }
+
+        .edit-p p {
+            padding-bottom: 12px;
+            color: #ff6a00;
+        }
+
+        .edit-p b {
+            color: #140c64;
+        }
+
+    .container h1 {
+        color: aqua;
+        text-shadow: 2px 2px 2px #000000;
+        font-size: 50px;
+        font-weight: 900;
+    }
+
+    .container .row {
+        padding-bottom: 18px;
+    }
+
+    .container label {
+        font-size: 23px;
+    }
+</style>
+<div class="container">
+    <h1 class="text-center">TẠO MỚI SẢN PHẨM</h1>
+
+    <form action="/TrangChu/Edit/@Model.id_sanpham" method="post">
+        <input type="hidden" name="id_sanpham" value="@Model.id_sanpham" />
+        <div class="row">
+            <div class="col-md-6">
+                <label for="Name" class="form-label">Tên sản phẩm</label>
+                <input type="text"
+                       class="form-control"
+                       id="Name"
+                       name="Name"
+                       placeholder="Name"
+                       value="@Model.Name" />
+            </div>
+            <div class="col-md-6">
+                <label for="Gia" class="form-label">Giá</label>
+                <input type="number"
+                       class="form-control"
+                       id="Gia"
+                       name="Gia"
+                       placeholder="Nhập Giá"
+                       value="@Model.Gia" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="Giakhuyenmai" class="form-label">Giá khuyến mãi</label>
+                <input type="number"
+                       class="form-control"
+                       id="Giakhuyenmai"
+                       name="Giakhuyenmai"
+                       placeholder="Giakhuyenmai"
+                       value="@Model.Giakhuyenmai" />
+
+                <div class="col-md-6">
+                    <label for="Motasanpham" class="form-label">Mô tả SP</label>
+                    <input type="text"
+                           class="form-control"
+                           id="Motasanpham"
+                           name="Motasanpham"
+                           placeholder="Motasanpham"
+                           value="@Model.Motasanpham" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="Tinhtrang" class="form-label">Tinhtrang</label>
+                <input type="text"
+                       class="form-control"
+                       id="Tinhtrang"
+                       name="Tinhtrang"
+                       placeholder="Tinhtrang"
+                       value="@Model.Tinhtrang" />
+
+                <div class="col-md-6">
+                    <label for="Chitiet" class="form-label">Chitiet</label>
+                    <input type="text"
+                           class="form-control"
+                           id="Chitiet"
+                           name="Chitiet"
+                           placeholder="Chitiet"
+                           value="@Model.Chitiet" />
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-4">
+                <label for="Khuyenmai" class="form-label">Khuyenmai</label>
+                <input type="text"
+                       class="form-control"
+                       id="Khuyenmai"
+                       name="Khuyenmai"
+                       placeholder="Khuyenmai"
+                       value="@Model.Khuyenmai" />
+            </div>
+            <div class="col-md-4">
+                <label for="ThuongHieuID" class="form-label">ThuongHieuID</label>
+                
+                <select id="ThuongHieuID" name="ThuongHieuID" class="form-select">
+
+                    @foreach (var thuonghieu in ViewBag.Thuonghieu)
+                    {
+                        if (thuonghieu.MaTH == Model.ThuongHieuID)
+                        {
+                            <option value="@thuonghieu.MaTH" selected>@thuonghieu.TenTH</option>
+                        }
+                        else
+                        {
+                            <option value="@thuonghieu.MaTH">@thuonghieu.TenTH</option>
+                        }
+
+                    }
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label for="Url_anh" class="form-label">File ảnh hiện tại</label>
+
+                <input type="text"
+                       class="form-control"
+                       id="Url_anh"
+                       name="Url_anh"
+                       placeholder="Url_anh"
+                       value="@Model.Url_anh" />
+                <label for="Url_anh" class="form-label">Upload file</label>
+                <input type="file"
+                       class="form-control"
+                       id="Url_anh"
+                       name="Url_anh"
+                       placeholder="Url_anh"
+                       value="@Model.Url_anh" />
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a class="btn btn-danger" href="/TrangChu/Home">Quay lại</a>
+    </form>
+
+</div>
+

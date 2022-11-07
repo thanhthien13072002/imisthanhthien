@@ -1,0 +1,165 @@
+﻿@model List<ThietKeWebsiteBan_DienThoai_NguyenThanhThien_2001206972.Models.Sanpham>
+@{
+    ViewBag.Title = "Iphone";
+    Layout = "~/Views/Shared/_LayoutPageThu1.cshtml";
+}
+
+<div class="container-fluid" style="padding-bottom:30px">
+    <div class="row">
+        <a id="thuchien" href="/TrangChu/Create">Tạo mới sản phẩm</a>
+        @foreach (var item in Model)
+        {
+            if (item.Giakhuyenmai == null)
+            {
+                <div class="col-3 mt-4">
+
+                    <div class="card">
+                        <a class="chitietsanpham" href="/TrangChu/CTSP/@item.id_sanpham">
+                            <div class="card-img text-center p-2" style="height:300px;">
+                                <img class="w-100" src="~/Img/All/@item.Url_anh" />
+                            </div>
+                        </a>
+                        <div class="card-title">
+                            <p class="text-center fw-bold">@item.Name</p>
+                            <p style="text-decoration:none;">Giá: @item.Gia.Value.ToString("C")</p>
+                            <p></p>
+                            <p>Tình trạng: @item.Tinhtrang</p>
+                            <p>@item.Motasanpham</p>
+                            @if (item.Chitiet != null)
+                            {
+                                <p>@item.Chitiet</p>
+                            }
+                            else
+                            {
+                                <p></p>
+                            }
+
+
+                        </div>
+                        <a class="chitietsanpham" href="/TrangChu/CTSP/@item.id_sanpham">
+                            <p class="xemchitiet">Xem chi tiết</p>
+                        </a>
+                        <a class="btn btn-primary addgh" href="#">
+                            Thêm vào giỏ hàng
+                        </a>
+                    </div>
+                    <div class="admin">
+                        <a href="/TrangChu/Edit/@item.id_sanpham">Update</a>
+                        <a href="/TrangChu/Delete/@item.id_sanpham">Delete</a>
+                    </div>
+
+                </div>
+
+            }
+            if (item.Giakhuyenmai != null)
+            {
+                <div class="col-3 mt-4">
+
+                    <div class="card">
+                        <a class="chitietsanpham" href="/TrangChu/CTSP/@item.id_sanpham">
+                            <div class="card-img text-center p-2" style="height:300px;">
+                                <img class="w-100" src="~/Img/All/@item.Url_anh" />
+                            </div>
+                        </a>
+                        <div class="card-title">
+                            <p class="text-center fw-bold">@item.Name</p>
+                            <p>Giá: @item.Gia.Value.ToString("C")</p>
+                            <p style="font-size:17px;">Chỉ còn: @item.Giakhuyenmai.Value.ToString("C")</p>
+
+                            <p>Tình trạng: @item.Tinhtrang</p>
+                            <p>@item.Motasanpham</p>
+                            <p>@item.Chitiet</p>
+                            <p style="font-size:15px;">Giảm @item.Khuyenmai</p>
+
+                        </div>
+                        <a class="chitietsanpham" href="/TrangChu/CTSP/@item.id_sanpham">
+                            <p class="xemchitiet">Xem chi tiết</p>
+                        </a>
+                        <a class="btn btn-primary addgh" href="#">
+                            Thêm vào giỏ hàng
+                        </a>
+                    </div>
+                    <div class="admin">
+                        <a href="/TrangChu/Edit/@item.id_sanpham">Update</a>
+                        <a href="/TrangChu/Delete/@item.id_sanpham">Delete</a>
+                    </div>
+                </div>
+            }
+
+        }
+    </div>
+    @{
+        int lui = ViewBag.page - 1;
+        if (lui <= 0)
+        {
+            lui = 1;
+        }
+        int tien = ViewBag.page + 1;
+        if (tien > ViewBag.nodau)
+        {
+            tien = ViewBag.nodau;
+        }
+    }
+    <ul class="pagination justify-content-center mt-5">
+
+        <li class="page-item">
+            @if (ViewBag.page <= 1)
+            {
+
+                <a href="/Iphone/Iphone?page=@lui" class="page-link disabled">
+                    <
+                </a>
+            }
+            else
+            {
+                <a href="/Iphone/Iphone?page=@lui" class="page-link">
+                    <
+                </a>
+            }
+
+        </li>
+        @for (int i = 0; i < ViewBag.nodau; i++)
+        {
+
+            if (i + 1 == ViewBag.page)
+            {
+
+                <li class="page-item active">
+                    <a href="/Iphone/Iphone?page=@(i+1)" class="page-link">
+                        @(i+1)
+                    </a>
+                </li>
+
+            }
+            else
+            {
+                <li class="page-item">
+                    <a href="/Iphone/Iphone?page=@(i+1)" class="page-link">
+                        @(i+1)
+                    </a>
+                </li>
+            }
+
+
+
+        }
+
+
+        <li class="page-item">
+            @if (tien == ViewBag.page)
+            {
+                <a href="/Iphone/Iphone?page=@tien" class="page-link disabled">
+                    >
+                </a>
+            }
+            else
+            {
+                <a href="/Iphone/Iphone?page=@tien" class="page-link">
+                    >
+                </a>
+            }
+
+        </li>
+    </ul>
+</div>
+

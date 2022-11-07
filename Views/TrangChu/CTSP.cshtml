@@ -1,0 +1,105 @@
+﻿@model ThietKeWebsiteBan_DienThoai_NguyenThanhThien_2001206972.Models.Sanpham
+@{
+    ViewBag.Title = "CTSP";
+    Layout = "~/Views/Shared/_LayoutPageThu1.cshtml";
+}
+<style>
+    .khungctsp {
+        margin-left: 20px;
+       
+    }
+
+        .khungctsp h2 {
+            color: #ffd800;
+            font-size: 60px;
+            padding-bottom: 30px;
+            padding-top: 10px;
+            text-shadow: -1px 3px 1px #ff0000, 2.5px 1.5px 1px #000000;
+            transition: 0.5s ease;
+        }
+
+        .khungctsp img {
+            display: flex;
+            transform: scale(1.0);
+
+        }
+        .khungctsp p
+        {
+            font-size:26px;
+            font-family: Calibri;
+        }
+        .khungctsp img:hover {
+            display: flex;
+            transform: scale(1.2);
+            transition: 0.5s ease;
+        }
+
+    .div-img {
+     
+    }
+
+    .titile { 
+        display: none;
+
+    }
+
+    .div-img:hover .titile {
+        position: relative;
+        top: -180px;
+        text-align: center;
+        font-size: 35px;
+        font-weight: 700;
+        color: #0adfdc;
+        background-color: rgba(0, 0, 0,0.6);
+        margin-left: 20%;
+        margin-right: 20%;
+        border-radius: 20px;
+        transform: scale(1);
+        text-shadow: 0px 1.5px 1px #ff0000, 2.5px 1.5px 1px #000000;
+        box-shadow: 0px 0px 1px 1px #ffd800;
+        display: block;
+    }
+</style>
+
+<div class="container p-5 khungctsp">
+    <h2 class="text-center">CHI TIẾT SẢN PHẨM</h2>
+    <div class="row">
+
+        <div class="col-4 div-img">
+
+            <img class="w-100" src="~/Img/ALl/@Model.Url_anh" />
+            <p class="titile">@Model.Name</p>
+
+        </div>
+        <div class="col-8">
+            <p>Sản phẩm số: #@Model.id_sanpham</p>
+            <p>Tên sản phẩm: @Model.Name</p>
+            <p>@Model.Motasanpham</p>
+            @if (Model.Giakhuyenmai == null)
+            {
+                <p>Giá bán: @Model.Gia</p>
+            }
+            else
+            {
+                <p>Giá bán: <span style="text-decoration:line-through;">@Model.Gia</span> </p>
+                <p>Giá khuyến mãi: @Model.Giakhuyenmai</p>
+            }
+
+            @if (Model.Khuyenmai == null)
+            {
+                <p> Khuyến mãi: Không có</p>
+            }
+            else
+            {
+                <p> Khuyến mãi: @Model.Khuyenmai</p>
+            }
+
+            <button type="submit" class="btn btn-primary">Thêm vào giỏ hàng</button>
+            <a class="btn btn-danger" href="/TrangChu/Home">Thoát</a>
+        </div>
+
+
+    </div>
+
+</div>
+

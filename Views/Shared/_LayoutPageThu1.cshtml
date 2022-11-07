@@ -1,0 +1,289 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Home.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.6.0.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+    <div class="container-fluid bg" style="max-width:1400px;">
+        <div class="row" style="height:90px;">
+            <div class="col-3">
+                <a href="/TrangChu/Home"><img class="w-50 vv" src="~/img/Logo.png" /></a>
+            </div>
+            <div class="col-6 div-search mt-3">
+
+                <input type="search" class="search" placeholder="Bạn tìm gì..." />
+                <ion-icon id="search" name="search-outline"></ion-icon>
+            </div>
+            <div class="col-3 support-ll">
+                <ion-icon class="mes" name="logo-twitch"></ion-icon>
+                <p>Hỗ trợ khách hàng 24/7</p>
+                <a @*target="_blank"*@ class="dn" href="/TrangChu/Dangnhap">Đăng nhập</a>
+                <a @*target="_blank"*@ class="dk" href="/TrangChu/Dangky">Đăng Ký</a>
+                <br />
+                <div class="gohang">
+                    <a class="link-cart" href="/TrangChu/GioHang" title="Giỏ hàng">
+                        <ion-icon class="cart" name="cart"></ion-icon>
+                    </a>
+                    <p class="gh">Giỏ hàng</p>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="row bg-cot2">
+
+            <div class="col-3">
+
+                <nav>
+                    <ul>
+                        <li>
+                            <a class="dmsp cldmsm " href="#" title="Danh mục sản phẩm">
+
+                                <p class="aaaa">DANH MỤC SẢN PHẨM</p>
+
+                            </a>
+
+                            <ul>
+                                <li>
+                                    <a href="/Samsung/Samsung" title="SamSung">Samsung</a>
+                                    <ul>
+                                        <li><a href="/Trangchu/Home?sanpham=samsungZ" title="Samsung Galaxy Z">Samsung Galaxy Z</a></li>
+                                        <li><a href="/Samsung/SamsungGalaxyS" title="Samsung Galaxy S">Samsung Galaxy S</a></li>
+                                        <li><a href="/Samsung/SamsungGalaxyNote" title="Samsung Galaxy Note">Samsung Galaxy Note</a></li>
+                                        <li><a href="/Samsung/SamsungGalaxyA" title="Samsung Galaxy A">Samsung Galaxy A</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="/Oppo/Oppo" title="Oppo">Oppo</a>
+                                    <ul>
+                                        <li><a href="/Oppo/OppoA5s" title="Oppo A5s">Oppo A5s</a></li>
+                                        <li><a href="/Oppo/OppoReno4" title="Oppo Reno4">Oppo Reno4</a></li>
+                                        <li><a href="/Oppo/OppoReno5" title="Oppo Reno5">Oppo Reno5</a></li>
+                                        <li><a href="/Oppo/OppoReno6" title="Oppo Reno6">Oppo Reno6</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="/Iphone/Iphone" title="Iphone">Iphone</a>
+                                    <ul>
+                                        <li><a href="/Iphone/Iphone11" title="Iphone 11">Iphone 11</a></li>
+                                        <li><a href="/Iphone/Iphone12" title="Iphone 12">Iphone 12</a></li>
+                                        <li><a href="/Iphone/Iphone13" title="Iphone 13">Iphone 13</a></li>
+                                        <li><a href="/Iphone/Iphone14" title="Iphone 14">Iphone 14</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="/Vivo/Vivo" title="Vivo">Vivo</a>
+                                    <ul>
+                                        <li><a href="/Vivo/VivoX70Pro" title="Vivo X70 Pro">Vivo X70 Pro</a></li>
+                                        <li><a href="/Vivo/VivoV235G" title="Vivo V23 5G">Vivo V23 5G</a></li>
+                                        <li><a href="/Vivo/VivoV202021" title="Vivo V20 2021">Vivo V20 2021</a></li>
+                                        <li><a href="/Vivo/VivoY33s" title="Vivo Y33s">Vivo Y33s</a></li>
+                                        <li><a href="/Vivo/VivoY21s" title="Vivo Y21s">Vivo Y21s</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="/Xiaomi/Xiaomi" title="Xiaomi">Xiaomi</a>
+                                    <ul>
+                                        <li><a href="/Xiaomi/Xiaomi12" title="Xiaomi 12">Xiaomi 12</a></li>
+                                        <li><a href="/Xiaomi/XiaomiMi11Lite" title="Xiaomi Mi 11 Lite">Xiaomi Mi 11 Lite</a></li>
+                                        <li><a href="/Xiaomi/MiMixAlpha5G" title="Mi Mix Alpha 5G">Mi Mix Alpha 5G</a></li>
+                                        <li><a href="/Xiaomi/MiNote10" title="Mi Note 10">Mi Note 10</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a id="spk" onclick="thongbao()" href="#" title="Sản phẩm khác">Sản phẩm khác</a>
+                                    <script>
+                                        function thongbao() {
+                                            alert("CHƯA CÓ CẬP NHẬP MỚI!!!");
+                                        }
+                                    </script>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-7 menu2">
+                <nav class="menu-2-nav">
+                    <ul class="menu-2-ul">
+                        <li class="menu-2-li">
+
+                            <a class="menu-a" title="Trang chủ" href="/TrangChu/Home">TRANG CHỦ</a>
+                        </li>
+                        <li class="menu-2-li">
+                            <a class="menu-a" title="Giới thiệu về trang web" href="#">GIỚI THIỆU</a>
+                        </li>
+                        <li class="menu-2-li">
+                            <a class="menu-a" title="Tin tức nóng" href="#">TIN TỨC</a>
+                        </li>
+                        <li class="menu-2-li">
+                            <a class="menu-a" title="Báo cáo cho chúng tôi biết có lỗi gì." href="#">BÁO LỖI</a>
+                        </li>
+                        <li class="menu-2-li">
+                            <a class="menu-a" title="..." href="#">LIÊN HỆ</a>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="container pt-3">
+        <div class="row image-GT">
+            <div class="col-9">
+                <img src="~/Img/ip_13_series_817_x_170_iabn-nq.jpg" />
+            </div>
+            <div class="col-3">
+                <img src="~/Img/sam_galaxy_a_series_357_x_170_zzep-zj.jpg" />
+            </div>
+        </div>
+    </div>
+
+    <div class="container nensp">
+        <div class="row">
+            <div class="container-fluid">
+
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid d-flex bg-tii">
+        <div class="container">
+            <div class="row">
+                <div class="col-3 ">
+                    <div class="navbar">
+                        <ul class="navbar-nav ">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#">Tích điểm Quà tặng VIP</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#">Lịch sử mua hàng</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#">Tìm hiểu về mua trả góp</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#">Chính sách bảo hành</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#">Hỗ trợ khác</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="navbar">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#">Giới thiệu công ty (MWG.vn)</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#">Tuyển dụng</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#">Gửi góp ý, khiếu nại</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#">Tìm siêu thị (3.316 shop)</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#">Xem bản mobile</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="col-3">
+                    <div class="navbar">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#"><b style="font-size:15px;">Tổng đài hỗ trợ </b>(Miễn phí gọi)</a>
+                            </li>
+                            <li class="nav-item">
+                                <a style="font-size:15px;" class="nav-link text-dark " href="#">Gọi mua:<b style="color: #00ff90">1800.1060</b>  (7:30 - 22:00)</a>
+                            </li>
+                            <li class="nav-item">
+                                <a style="font-size:15px;" class="nav-link text-dark" href="#">Kỹ thuật: <b style="color: #00ff90">1800.1763 </b>(7:30 - 22:00)</a>
+                            </li>
+                            <li class="nav-item">
+                                <a style="font-size:15px;" class="nav-link text-dark" href="#">Khiếu nại:<b style="color: #00ff90">1800.1062 </b> (8:00 - 21:30)</a>
+                            </li>
+                            <li class="nav-item">
+                                <a style="font-size:15px;" class="nav-link text-dark" href="#">Bảo hành: <b style="color: #00ff90">1800.1064 </b>(8:00 - 21:00)</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-3 mt-3">
+                    <h4 style="color: #ff6a00; font-size:20px;">Đăng ký nhận bảng tin</h4>
+                    <form style="width:auto;">
+                        <input type="email" class="form-control" placeholder="Nhập Email của bạn" style="border-radius:7px;width:75%; height:35px; float:left" />
+                        <button type="submit" class="btn" style="margin-left:5px;background-color: #00ff90">Gửi</button>
+                    </form>
+
+                    <h4 style="color: #ff6a00; font-size: 20px;">Liên Kết</h4>
+                    <ul>
+                        <li>
+                            <a class="text-decoration-none" href="#">Facebook</a>
+                        </li>
+                        <li>
+                            <a class="text-decoration-none" href="#">Youtube</a>
+                        </li>
+                        <li>
+                            <a class="text-decoration-none" href="#">Instargam</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="text-center p-3" style="font-size: 15px; height:100px; background-color: #44ff4f">
+        <p class="f-p">
+            © 2022. Công ty cổ phần Nguyễn Thành Thiện. GPDKKD: 03232373532 do sở KH & ĐT TP.HCM cấp ngày 02/01/2099. GPMXH: 238/GP-BTTTT do Bộ Thông Tin và Truyền Thông cấp ngày 04/06/2099.
+        </p><br />
+        <p style="margin-top:-30px" class="f-p">
+            Địa chỉ: 120 Lê Trọng Tấn, P. Sơn Kỳ, Q.Tân Phú, TP.Hồ Chí Minh. Điện thoại: 028 38125560. Email: imisthanhthien@gmail.com Chịu trách nhiệm nội dung: Nguyễn Thành Thiện.     <a class="text-decoration-none" href="#">Xem chính sách sử dụng</a>
+        </p>
+    </footer>
+
+    <a class="message" target="_blank" href="https://www.facebook.com/">
+        <img src="~/img/iconmess.jpeg" title="Gửi tin nhắn cho Thành Thiện ^^">
+    </a>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="~/Scripts/jquery-3.6.0.js"></script>
+    <div id="nuttruoc" title="Lên đầu trang">
+        <i class="fa-sharp fa-solid fa-arrow-up"></i>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                if ($(this).scrollTop()) {
+                    $('#nuttruoc').fadeIn();
+                }
+                else {
+                    $('#nuttruoc').fadeOut();
+                }
+            })
+            $('#nuttruoc').click(function () {
+                $('html, body').animate({ scrollTop: 0, }, 5);
+            })
+        }
+        );
+    </script>
+    <script src="~/Content/Giohangadd.js"></script>
+</body>
+</html>

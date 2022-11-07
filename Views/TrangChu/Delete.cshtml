@@ -1,0 +1,57 @@
+﻿@model ThietKeWebsiteBan_DienThoai_NguyenThanhThien_2001206972.Models.Sanpham
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutPageThu1.cshtml";
+}
+
+<style>
+    .edit-p {
+        margin-left: 20%;
+        margin-right: 20%;
+        font-size: 24px;
+    }
+
+        .edit-p p {
+            padding-bottom: 12px;
+            color: #ff6a00;
+        }
+
+        .edit-p b {
+            color: #140c64;
+        }
+
+    .container h1 {
+        color: aqua;
+        text-shadow: 2px 2px 2px #000000;
+        font-size: 50px;
+        font-weight: 900;
+    }
+
+    .container .row {
+        padding-bottom: 18px;
+    }
+
+    .container label {
+        font-size: 23px;
+    }
+</style>
+<div class="container">
+    <h1 class="text-center">TẠO MỚI SẢN PHẨM</h1>
+    <form action="/TrangChu/Delete/@Model.id_sanpham" method="post">
+        <input type="hidden" name="id_sanpham" value="@Model.id_sanpham" />
+        <table class="table">
+            <tr>
+                <th>Tên sản phẩm</th>
+                <td>@Model.Name</td>
+            </tr>
+            <tr>
+                <th>Giá</th>
+                <td>@Model.Gia</td>
+            </tr>
+        </table>
+        <button type="submit" class="btn btn-primary">Xóa</button>
+        <a class="btn btn-danger" href="TrangChu/Home">Thoát</a>
+    </form>
+</div>
+
+

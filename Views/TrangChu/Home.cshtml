@@ -1,0 +1,227 @@
+﻿@model List<ThietKeWebsiteBan_DienThoai_NguyenThanhThien_2001206972.Models.Sanpham>
+@{
+    ViewBag.Title = "Trang chủ";
+    Layout = "~/Views/Shared/_LayoutPageThu1.cshtml";
+}
+@{
+    int lui = ViewBag.page - 1;
+    if (lui <= 0)
+    {
+        lui = 1;
+    }
+    int tien = ViewBag.page + 1;
+    if (tien > ViewBag.nodau)
+    {
+        tien = ViewBag.nodau;
+    }
+}
+
+<div class="container loc mt-4">
+
+    <div class="row tool ">
+        <div class="col-4">
+            <p>sản phẩm</p>
+            <select class="form-select" id="chonsp">
+                <option value="chonloai">Chọn loại</option>
+                <option value="ss">SAMSUNG</option>
+                <option value="op">OPPO</option>
+                <option value="ip">IPHONE</option>
+                <option value="vv">VIVO</option>
+                <option value="xm">XIAOMI</option>
+            </select>
+
+        </div>
+        <script>
+                $('#chonsp').change(function () {
+                    const value = $('#chonsp').val();
+                    if (value == "ss")
+                        window.location.href = ("/Samsung/Samsung");
+                    else if (value == "op")
+                        window.location.href = ("/Oppo/Oppo");
+                    else if (value == "ip")
+                        window.location.href = ("/Iphone/Iphone");
+                    else if (value == "vv")
+                        window.location.href = ("/Vivo/Vivo");
+                    else
+                    {
+                        window.location.href = ("/Xiaomi/Xiaomi");
+                    }
+                });
+        </script>
+
+        <div class="col-md-4">
+            <p>Tìm theo tên</p>
+            <input type="text" placeholder="Name" class="form-control" />
+        </div>
+        <div class="col-4">
+            <p>Chọn theo giá</p>
+            <select class="form-select" id="chongia">
+                <option value="">Chọn giá sản phẩm</option>
+                <option value="1">Dưới 3 triệu</option>
+                <option value="2">Từ 3 triệu - 5 triệu</option>
+                <option value="3">Từ 5 triệu - 10 triệu</option>
+                <option value="4">Từ 10triệu - 20 triệu</option>
+                <option value="5">Từ 20triệu - 30 triệu</option>
+                <option value="6">Trên 30 triệu</option>
+            </select>
+            <script>
+                    $('#chongia').change(function () {
+                        const value = $('#chongia').val();
+                        window.location.href = ("/TrangChu/Home?sortPrice=") + value;
+                    });
+            </script>
+        </div>
+
+    </div>
+</div>
+<div class="container-fluid" style="padding-bottom:30px">
+
+    <div class="row">
+        <a id="thuchien" href="/TrangChu/Create">Tạo mới sản phẩm</a>
+        @foreach (var item in Model)
+        {
+            if (item.Giakhuyenmai == null)
+            {
+                <div class="col-3 mt-4">
+
+                    <div class="card">
+                        <a class="chitietsanpham" href="/TrangChu/CTSP/@item.id_sanpham">
+                            <div class="card-img text-center p-2" style="height:300px;">
+                                <img class="w-100" src="~/Img/All/@item.Url_anh" />
+                            </div>
+                        </a>
+                        <div class="card-title">
+                            <p class="text-center fw-bold">@item.Name</p>
+                            <p style="text-decoration:none;">Giá: @item.Gia.Value.ToString("C")</p>
+                            <p></p>
+                            <p>Tình trạng: @item.Tinhtrang</p>
+                            <p>@item.Motasanpham</p>
+                            @if (item.Chitiet != null)
+                            {
+                                <p>@item.Chitiet</p>
+                            }
+                            else
+                            {
+                                <p></p>
+                            }
+                        </div>
+                        <a class="chitietsanpham" href="/TrangChu/CTSP/@item.id_sanpham">
+                            <p class="xemchitiet">Xem chi tiết</p>
+                        </a>
+                        <button type="submit" class="btn btn-primary addgh">
+                            Thêm vào giỏ hàng
+                        </button>
+                    </div>
+                    <div class="admin">
+                        <a href="/TrangChu/Edit/@item.id_sanpham">Update</a>
+                        <a href="/TrangChu/Delete/@item.id_sanpham">Delete</a>
+                    </div>
+
+                </div>
+
+            }
+            if (item.Giakhuyenmai != null)
+            {
+                <div class="col-3 mt-4">
+
+                    <div class="card">
+                        <a class="chitietsanpham" href="/TrangChu/CTSP/@item.id_sanpham">
+                            <div class="card-img text-center p-2" style="height:300px;">
+                                <img class="w-100" src="~/Img/All/@item.Url_anh" />
+                            </div>
+                        </a>
+                        <div class="card-title">
+                            <p class="text-center fw-bold">@item.Name</p>
+                            <p style="text-decoration:none;">Giá: @item.Gia.Value.ToString("C")</p>
+
+                            <p>Tình trạng: @item.Tinhtrang</p>
+                            <p>@item.Motasanpham</p>
+                            <p>@item.Chitiet</p>
+                            <p style="font-size:15px;">Giảm @item.Khuyenmai</p>
+
+                        </div>
+                        <a class="chitietsanpham" href="/TrangChu/CTSP/@item.id_sanpham">
+                            <p class="xemchitiet">Xem chi tiết</p>
+                        </a>
+                        <button type="submit" class="btn btn-primary addgh">
+                            Thêm vào giỏ hàng
+                        </button>
+                    </div>
+                    <div class="admin">
+                        <a href="/TrangChu/Edit/@item.id_sanpham">Update</a>
+                        <a href="/TrangChu/Delete/@item.id_sanpham">Delete</a>
+                    </div>
+                </div>
+            }
+
+        }
+    </div>
+
+
+    <ul class="pagination justify-content-center mt-5">
+
+        <li class="page-item  disableda">
+            @if (ViewBag.page <= 1)
+            {
+
+                <a href="/TrangChu/Home?page=@lui" class="page-link disabled">
+                    <
+                </a>
+            }
+            else
+            {
+                <a href="/TrangChu/Home?page=@lui" class="page-link">
+                    <
+                </a>
+            }
+
+        </li>
+
+        @for (int i = 0; i < ViewBag.nodau; i++)
+        {
+
+            if (i + 1 == ViewBag.page)
+            {
+
+                <li class="page-item active">
+                    <a href="/TrangChu/Home?page=@(i+1)" class="page-link">
+                        @(i+1)
+                    </a>
+                </li>
+
+
+            }
+            else
+            {
+                <li class="page-item">
+                    <a href="/TrangChu/Home?page=@(i+1)" class="page-link">
+                        @(i+1)
+                    </a>
+                </li>
+
+            }
+
+
+
+        }
+
+
+
+
+        <li class="page-item .disabledl">
+            @if (tien == ViewBag.page)
+            {
+                <a href="/TrangChu/Home?page=@tien" class="page-link disabled">
+                    >
+                </a>
+            }
+            else
+            {
+                <a href="/TrangChu/Home?page=@tien" class="page-link">
+                    >
+                </a>
+            }
+
+        </li>
+    </ul>
+</div>

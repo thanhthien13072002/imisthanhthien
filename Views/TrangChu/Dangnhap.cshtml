@@ -1,0 +1,235 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/dn.css" rel="stylesheet" />
+    <title>Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            min-width: 100vh;
+            background-image: url('../../img/banner1.jpg');
+            background-size: 100%;
+        }
+
+        .form-dn {
+            align-items: center;
+            justify-content: center;
+            width: 500px;
+            margin-left: 25%;
+            height: 560px;
+            padding: 40px;
+            border-radius: 6px;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+            .form-dn label {
+                font-size: 25px;
+                font-weight: 600;
+                color: #21e1ed;
+                padding: 5px;
+            }
+
+            .form-dn button {
+                text-align: center;
+                font-size: 27px;
+                margin-left: 30%;
+                font-weight: 600;
+            }
+
+            .form-dn input[type=text] {
+                padding-bottom: 10px;
+            }
+
+            .form-dn p {
+                font-size: 18px;
+            }
+
+        .container h2 {
+            text-align: center;
+            font-size: 50px;
+            color: #ffd91d;
+            text-shadow: 1px 1px 5px #ff0000;
+        }
+
+        .container h3 {
+            text-align: center;
+            font-size: 25px;
+            color: #ffd800;
+        }
+
+
+
+        .logo-lg {
+        }
+
+            .logo-lg .col-4 {
+                float: left;
+                text-align: center;
+            }
+
+            .logo-lg img {
+                width: 100%;
+                height: 50px;
+                border-radius: 3px;
+            }
+
+                .logo-lg img:hover {
+                    width: 100%;
+                    height: 50px;
+                    border-radius: 3px;
+                    border: 3px solid #808080;
+                }
+
+        .form-dn small {
+            color: #e74c3c;
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            visibility: hidden;
+            font-size: 12px;
+        }
+
+        .fg {
+            color: white;
+        }
+
+        .nhomk {
+            color: white;
+            padding-left: 10px;
+        }
+
+        .linkhome {
+            position: absolute;
+            right: 14px;
+            bottom: 92%;
+        }
+
+            .linkhome a {
+                text-decoration: none;
+                float: left;
+                font-size: 35px;
+                border-radius: 5px;
+                background-color: #21e1ed;
+                padding: 5px;
+                height: 50px;
+            }
+
+            .linkhome:hover a {
+                text-decoration: none;
+                float: left;
+                font-size: 35px;
+                border-radius: 5px;
+                background-color: #e87171;
+                padding: 5px;
+                height: 50px;
+                transform: scale(0.9);
+                transition: 0.3s ease-in-out;
+            }
+
+            .linkhome .iconhome {
+                float: left;
+                align-items: center;
+                justify-content: center;
+                color: white;
+            }
+
+            .linkhome:hover .iconhome {
+                float: left;
+                align-items: center;
+                justify-content: center;
+                color: #342222;
+            }
+
+            .linkhome p {
+                float: left;
+                color: white;
+                margin-top: -7px;
+                font-weight: 600;
+                font-family: Calibri;
+                text-shadow: 0px 1.5px 1px #030229,0px -1px 1px black,0px -2px 1px white;
+            }
+
+            .linkhome:hover p {
+                float: left;
+                color: #ffd91d;
+                margin-top: -7px;
+                font-weight: 600;
+                font-family: Calibri;
+            }
+    </style>
+</head>
+<body>
+   <div class="taoktk">
+       <p>Nếu bạn chưa có tài khoản? 👉<a href="/TrangChu/Dangky">Tạo tài khoản</a></p>
+   </div>
+    <div class="khungimg">
+        <img class="logodn" src="~/Img/Logo.png" />
+        <p>Chào mừng bạn đến với trang đăng nhập 😊</p>
+    </div>
+
+    <div class="linkhome">
+        <a href="/TrangChu/Home">
+            <ion-icon class="iconhome" name="home"></ion-icon>
+            <p>Home</p>
+        </a>
+    </div>
+
+    <div class="container pt-5">
+        <form class="form-dn">
+            <h2>LOGIN</h2>
+
+            <label>Tài khoản</label>
+            <input type="text" class="form-control" id="userName" placeholder="Nhập tài khoản" />
+            <small>Error message</small>
+            <label>Mật khẩu</label>
+            <input type="text" class="form-control" id="userpass" placeholder="Nhập mật khẩu" />
+            <small>Error message</small>
+            <div class="row">
+                <div class="col-5">
+                    <input class="form-check-input ck" type="checkbox" style="float:left;" />
+                    <p class="nhomk">Nhớ mật khẩu</p>
+                </div>
+                <div class="col-7">
+                    <p class="fg">Forgot password? <a href="#">Click here</a><br /></p>
+                </div>
+
+            </div>
+            <button class="btn btn-primary" type="submit">Đăng nhập</button>
+            <h3 class="mt-3">OR</h3>
+            <div class="row logo-lg">
+                <div class="col-4">
+                    <a href="#">
+                        <img src="~/Img/logo-facebook.png" />
+                    </a>
+
+                </div>
+                <div class="col-4">
+                    <a href="#">
+                        <img src="~/Img/logo-gg.png" />
+                    </a>
+
+                </div>
+                <div class="col-4">
+                    <a href="#">
+                        <img class="appe" src="~/Img/logo-appe.png" />
+                    </a>
+
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="~/Content/Main.js"></script>
+</body>
+</html>

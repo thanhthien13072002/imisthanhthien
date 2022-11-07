@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SanphamModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Sanpham">
+    <Key>
+      <PropertyRef Name="id_sanpham" />
+    </Key>
+    <Property Name="id_sanpham" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nchar" MaxLength="30" />
+    <Property Name="Gia" Type="int" />
+    <Property Name="Giakhuyenmai" Type="int" />
+    <Property Name="Motasanpham" Type="nchar" MaxLength="30" />
+    <Property Name="Tinhtrang" Type="nchar" MaxLength="20" />
+    <Property Name="Chitiet" Type="nchar" MaxLength="30" />
+    <Property Name="Khuyenmai" Type="nchar" MaxLength="20" />
+    <Property Name="ThuongHieuID" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="Url_anh" Type="char" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="ThuongHieu">
+    <Key>
+      <PropertyRef Name="MaTH" />
+    </Key>
+    <Property Name="MaTH" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="TenTH" Type="nchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <Association Name="fk_Sanpham">
+    <End Role="ThuongHieu" Type="Self.ThuongHieu" Multiplicity="1" />
+    <End Role="Sanpham" Type="Self.Sanpham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThuongHieu">
+        <PropertyRef Name="MaTH" />
+      </Principal>
+      <Dependent Role="Sanpham">
+        <PropertyRef Name="ThuongHieuID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SanphamModelStoreContainer">
+    <EntitySet Name="Sanpham" EntityType="Self.Sanpham" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ThuongHieu" EntityType="Self.ThuongHieu" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_Sanpham" Association="Self.fk_Sanpham">
+      <End Role="ThuongHieu" EntitySet="ThuongHieu" />
+      <End Role="Sanpham" EntitySet="Sanpham" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
